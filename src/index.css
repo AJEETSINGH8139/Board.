@@ -236,6 +236,19 @@ body {
   height: 359px;
 }
 
+.line-chart-head {
+  color: #000;
+  font-size: 18px;
+  font-family: Montserrat;
+  font-weight: 700;
+}
+
+.line-chart-date {
+  color: var(--secondary-text, #858585);
+  font-size: 14px;
+  font-family: Montserrat;
+}
+
 .paichart {
   margin: 0px 15px;
   display: flex;

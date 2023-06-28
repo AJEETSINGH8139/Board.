@@ -49,17 +49,19 @@ function Dashboard() {
         </div>
       </div>
       <div className="activity margin">
-        {/* <div className="linechart">
-                <h2>Top products</h2>
-                <p>May-June2021 <img src={vector5}/></p>
-            </div> */}
+        <div className="paichart">
+          <h2 className="line-chart-head">Top products</h2>
+          <p className="line-chart-date">
+            May-June2021 <img src={vector5} />
+          </p>
+        </div>
         <MultiLineChart />
       </div>
       <div className="card-bottom margin">
         <div className="product">
           <div className="paichart">
-            <h2>Top products</h2>
-            <p>
+            <h2 className="line-chart-head">Top products</h2>
+            <p className="line-chart-date">
               May-June2021 <img src={vector5} />
             </p>
           </div>
@@ -67,8 +69,8 @@ function Dashboard() {
         </div>
         <div className="schedule">
           <div className="paichart">
-            <h2>Today's schedule</h2>
-            <p>
+            <h2 className="line-chart-head">Today's schedule</h2>
+            <p className="line-chart-date">
               See All <img src={vector6} />
             </p>
           </div>
