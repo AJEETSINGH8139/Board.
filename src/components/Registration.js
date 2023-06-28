@@ -1,6 +1,7 @@
 import React from "react";
+import { Link, useNavigate } from "react-router-dom";
 
-function SignIn() {
+function Registration() {
   return (
     <div className="Authpage">
       <div className="board">
@@ -11,7 +12,7 @@ function SignIn() {
           <h1 className="sign-head">Sign In</h1>
           <p className="sign-para">Sign in to your account</p>
           <div className="google-auth">Google Auth</div>
-          <div className="sign-form">
+          <div className="register-form">
             <form className="signin-form">
               <label className="lable-email" for="email">
                 Email address
@@ -33,7 +34,15 @@ function SignIn() {
                 placeholder="......"
               />
 
-              <a href="#">Forgot password?</a>
+              <label className="lable" for="password">
+                Password
+              </label>
+              <input
+                className="form-input"
+                type="password"
+                name="password"
+                placeholder="......"
+              />
 
               <input className="form-btn lable" type="submit" value="Sign In" />
             </form>
@@ -41,7 +50,7 @@ function SignIn() {
 
           <div>
             <span className="span-btn">
-              Don't have an account? <a href="Registration">Register here</a>
+              Don't have an account? <Link to="/SignIn">Sign In</Link>
             </span>
           </div>
         </div>
@@ -50,4 +59,4 @@ function SignIn() {
   );
 }
 
-export default SignIn;
+export default Registration;
