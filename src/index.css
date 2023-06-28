@@ -232,12 +232,43 @@ body {
   background: #fff;
 }
 
-.line-chart{
+.line-chart {
   height: 359px;
 }
 
-.paichart{
+.paichart {
+  margin: 0px 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  /* height: 400px; */
+}
+
+.piechart {
+  margin-top: -20px;
+}
+
+.schedule-data {
+  margin: 0px 15px;
+  height: 66px;
+  border-left: 5px solid #9bdd7c;
+}
+
+.margin-data {
+  /* margin: 15px 15px; */
+  padding-left: 10px;
+}
+
+.head-schedule {
+  color: #666;
+  font-size: 14px;
+  font-family: Lato;
+  font-weight: 700;
+}
+
+.data-schedule {
+  color: var(--icon, #999);
+  font-size: 12px;
+  font-family: Lato;
+  margin-top: -10px;
 }

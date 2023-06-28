@@ -7,9 +7,9 @@ import vector2 from "../assets/Vector (2).png";
 import vector3 from "../assets/Vector (3).png";
 import vector4 from "../assets/total_transactions_icon.png";
 import MultiLineChart from "./MultiLineChart";
-import vector5 from "../assets/Vector (4).png"
-import vector6 from "../assets/Vector (5).png"
-import PaiChart from "./PaiChart";
+import vector5 from "../assets/Vector (4).png";
+import vector6 from "../assets/Vector (5).png";
+import PieCharts from "./PieCharts";
 
 function Dashboard() {
   return (
@@ -49,7 +49,7 @@ function Dashboard() {
         </div>
       </div>
       <div className="activity margin">
-      {/* <div className="linechart">
+        {/* <div className="linechart">
                 <h2>Top products</h2>
                 <p>May-June2021 <img src={vector5}/></p>
             </div> */}
@@ -57,29 +57,39 @@ function Dashboard() {
       </div>
       <div className="card-bottom margin">
         <div className="product">
-            <div className="paichart">
-                <h2>Top products</h2>
-                <p>May-June2021 <img src={vector5}/></p>
-            </div>
-          <PaiChart />
+          <div className="paichart">
+            <h2>Top products</h2>
+            <p>
+              May-June2021 <img src={vector5} />
+            </p>
+          </div>
+          <PieCharts />
         </div>
         <div className="schedule">
-        <div className="paichart">
-                <h2>Today's schedule</h2>
-                <p>See All <img src={vector6}/></p>
+          <div className="paichart">
+            <h2>Today's schedule</h2>
+            <p>
+              See All <img src={vector6} />
+            </p>
+          </div>
+          <div>
+            <div className="schedule-data">
+              <h4 className="margin-data head-schedule">
+                Meeting with suppliers from Kuta Bali
+              </h4>
+              <p className="margin-data data-schedule">14.00-15.00</p>
+              <p className="margin-data data-schedule">
+                at Sunset Road, Kuta, Bali
+              </p>
             </div>
-            <div>
-                <div>
-                    <h4>Meeting with suppliers from Kuta Bali</h4>
-                    <p>14.00-15.00</p>
-                    <p>at Sunset Road, Kuta, Bali</p>
-                </div>
-                <div>
-                    <h4>Check operation at Giga Factory 1</h4>
-                    <p>18.00-20.00</p>
-                    <p>at Centeral Jakarta</p>
-                </div>
+            <div className="schedule-data">
+              <h4 className="margin-data head-schedule">
+                Check operation at Giga Factory 1
+              </h4>
+              <p className="margin-data data-schedule">18.00-20.00</p>
+              <p className="margin-data data-schedule">at Centeral Jakarta</p>
             </div>
+          </div>
         </div>
       </div>
     </div>
