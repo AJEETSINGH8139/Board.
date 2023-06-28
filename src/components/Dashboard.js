@@ -10,6 +10,9 @@ import MultiLineChart from "./MultiLineChart";
 import vector5 from "../assets/Vector (4).png";
 import vector6 from "../assets/Vector (5).png";
 import PieCharts from "./PieCharts";
+import ellipse1 from '../assets/Ellipse 3.png'
+import ellipse2 from '../assets/Ellipse 4.png'
+import ellipse3 from '../assets/Ellipse 6.png'
 
 function Dashboard() {
   return (
@@ -49,11 +52,19 @@ function Dashboard() {
         </div>
       </div>
       <div className="activity margin">
-        <div className="paichart">
+        <div className="linechart">
+          <div>
           <h2 className="line-chart-head">Top products</h2>
           <p className="line-chart-date">
             May-June2021 <img src={vector5} />
           </p>
+          </div>
+          <div>
+            <img className="ellipse-img" src={ellipse1} />
+            <spam className="line-data">Guest</spam>
+            <img className="ellipse-img" src={ellipse2} />
+            <spam className="line-data">User</spam>
+          </div>
         </div>
         <MultiLineChart />
       </div>
@@ -84,7 +95,7 @@ function Dashboard() {
                 at Sunset Road, Kuta, Bali
               </p>
             </div>
-            <div className="schedule-data">
+            <div className="schedule-data left-color">
               <h4 className="margin-data head-schedule">
                 Check operation at Giga Factory 1
               </h4>

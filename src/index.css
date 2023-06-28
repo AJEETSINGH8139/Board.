@@ -234,6 +234,14 @@ body {
 
 .line-chart {
   height: 359px;
+  padding-left: 40px;
+}
+
+.linechart {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0px 40px;
 }
 
 .line-chart-head {
@@ -249,8 +257,22 @@ body {
   font-family: Montserrat;
 }
 
+.ellipse-img {
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+  margin-left: 40px;
+}
+
+.line-data {
+  color: #000;
+  font-size: 14px;
+  font-family: Lato;
+  margin-left: 10px;
+}
+
 .paichart {
-  margin: 0px 15px;
+  margin: 0px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -262,7 +284,7 @@ body {
 }
 
 .schedule-data {
-  margin: 0px 15px;
+  margin: 0px 40px;
   height: 66px;
   border-left: 5px solid #9bdd7c;
 }
@@ -284,4 +306,8 @@ body {
   font-size: 12px;
   font-family: Lato;
   margin-top: -10px;
+}
+
+.left-color{
+  border-color: #6972C3;
 }

@@ -25,6 +25,7 @@ class MultiLineChart extends Component {
       },
 
       height: 259,
+      width: 930,
       data: [
         {
           type: "spline",
