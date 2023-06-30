@@ -10,11 +10,16 @@ import MultiLineChart from "./MultiLineChart";
 import vector5 from "../assets/Vector (4).png";
 import vector6 from "../assets/Vector (5).png";
 import PieCharts from "./PieCharts";
-import ellipse1 from '../assets/Ellipse 3.png'
-import ellipse2 from '../assets/Ellipse 4.png'
-import ellipse3 from '../assets/Ellipse 6.png'
+import ellipse1 from "../assets/Ellipse 3.png";
+import ellipse2 from "../assets/Ellipse 4.png";
+import { useNavigate } from "react-router-dom";
 
 function Dashboard() {
+  const navigate = useNavigate();
+  const logout = () => {
+    localStorage.clear();
+    navigate("/")
+  };
   return (
     <div className="dashboard">
       <div className="nav margin">
@@ -27,6 +32,7 @@ function Dashboard() {
 
           <img className="vector-nav" src={vector} />
           <img className="profile" src={profile_img} />
+          <button className="logout-btn" onClick={logout}>Logout</button>
         </div>
       </div>
       <div className="card margin">
@@ -54,10 +60,10 @@ function Dashboard() {
       <div className="activity margin">
         <div className="linechart">
           <div>
-          <h2 className="line-chart-head">Top products</h2>
-          <p className="line-chart-date">
-            May-June2021 <img src={vector5} />
-          </p>
+            <h2 className="line-chart-head">Top products</h2>
+            <p className="line-chart-date">
+              May-June2021 <img src={vector5} />
+            </p>
           </div>
           <div>
             <img className="ellipse-img" src={ellipse1} />

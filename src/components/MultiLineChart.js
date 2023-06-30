@@ -4,10 +4,6 @@ import { CanvasJSChart } from "canvasjs-react-charts";
 class MultiLineChart extends Component {
   render() {
     const options = {
-      // animationEnabled: true,
-      // title:{
-      //     text: "Number of New Customers"
-      // },
       axisX: {
         valueFormatString: "",
       },

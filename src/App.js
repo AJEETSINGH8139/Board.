@@ -1,41 +1,33 @@
-import Authpage from "./Authpage";
-import Home from "./Home";
+import React, { useEffect, useState } from "react";
+import Home from "./components/Home";
 import Registration from "./components/Registration";
 import SignIn from "./components/SignIn";
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { AuthorizeUser, ProtectRoute } from './middleware/auth'
 import PageNotFound from "./components/PageNotFound";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-
-// import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <SignIn />
-  },
-  {
-    path: '/signIn',
-    element: <SignIn />
-  },
-  {
-    path: '/registration',
-    element: <Registration />
-  },
-  {
-    path: '/home',
-    element: <AuthorizeUser><Home /></AuthorizeUser>
-  },
-  {
-    path: '*',
-    element: <PageNotFound />
-  },
-])
-
+import { auth } from "./firebase";
 function App() {
+  const [userName, setUserName] = useState("");
+
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        setUserName(user.displayName);
+      } else setUserName("");
+    });
+  }, []);
+
   return (
     <div className="App">
-      <RouterProvider router={router}></RouterProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<SignIn />} />
+          <Route path="/signIn" element={<SignIn />} />
+          <Route path="/registration" element={<Registration />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
