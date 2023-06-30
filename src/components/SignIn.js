@@ -4,7 +4,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import InputControl from "./InputControl/InputControl";
 import { auth } from "../firebase";
 import SocialAuth from "./SocialAuth";
-import {sendPasswordResetEmail } from "firebase/auth";
+import { sendPasswordResetEmail } from "firebase/auth";
 
 function SignIn() {
   const navigate = useNavigate();
@@ -13,6 +13,7 @@ function SignIn() {
     pass: "",
   });
   const [errorMsg, setErrorMsg] = useState("");
+  const [msg, setMsg] = useState('')
   const [submitButtonDisabled, setSubmitButtonDisabled] = useState(false);
 
   const handleSubmission = () => {
@@ -23,16 +24,6 @@ function SignIn() {
     setErrorMsg("");
 
     setSubmitButtonDisabled(true);
-    sendPasswordResetEmail(auth, values.email)
-      .then(() => {
-        // Password reset email sent!
-        // ..
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // ..
-      });
     signInWithEmailAndPassword(auth, values.email, values.pass)
       .then(async (res) => {
         setSubmitButtonDisabled(false);
@@ -42,6 +33,19 @@ function SignIn() {
       .catch((err) => {
         setSubmitButtonDisabled(false);
         setErrorMsg(err.message);
+      });
+  };
+
+  const handleResetPassword = () => {
+    setMsg("Check Your Mail...")
+    sendPasswordResetEmail(auth, values.email)
+      .then(() => {
+        setMsg("Check Your Mail...")
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // ..
       });
   };
 
@@ -73,12 +77,13 @@ function SignIn() {
               placeholder="......."
             />
             <div>
-              <Link className="forgot" to="#">
+              <Link className="forgot" to="#" onClick={handleResetPassword}>
                 Forgot password?
               </Link>
             </div>
-
-            <b>{errorMsg}</b>
+            {msg && <b>{msg}</b>}
+            {errorMsg && <b>{errorMsg}</b>}
+            
             <button
               className="form-btn"
               disabled={submitButtonDisabled}

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { auth, provider } from "../firebase";
-import { signInWithPopup } from "firebase/auth";
+import { signInWithPopup} from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import google from "../assets/google-icon 1.png"
 import apple from "../assets/apple 1.png"
@@ -14,6 +14,17 @@ function SocialAuth() {
       setValue(data.user.email);
       localStorage.setItem("email", data.user.email);
       navigate("/home");
+    }).catch((error) => {
+      // Handle Errors here.
+      const errorCode = error.code;
+      
+      const errorMessage = error.message;
+      // The email of the user's account used.
+      const email = error.customData.email;
+      // The AuthCredential type that was used.
+      // const credential = GoogleAuthProvider.credentialFromError(error);
+      // ...
+      console.log(errorCode+" "+errorMessage+" "+email);
     });
   };
 

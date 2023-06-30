@@ -13,12 +13,24 @@ import PieCharts from "./PieCharts";
 import ellipse1 from "../assets/Ellipse 3.png";
 import ellipse2 from "../assets/Ellipse 4.png";
 import { useNavigate } from "react-router-dom";
+import { getAuth, signOut } from "firebase/auth";
 
 function Dashboard() {
   const navigate = useNavigate();
+
+  const auth = getAuth();
+
   const logout = () => {
-    localStorage.clear();
-    navigate("/")
+    // localStorage.clear();
+    // navigate("/");
+    signOut(auth)
+      .then(() => {
+        // Sign-out successful.
+        navigate("/");
+      })
+      .catch((error) => {
+        // An error happened.
+      });
   };
   return (
     <div className="dashboard">
@@ -32,7 +44,9 @@ function Dashboard() {
 
           <img className="vector-nav" src={vector} />
           <img className="profile" src={profile_img} />
-          <button className="logout-btn" onClick={logout}>Logout</button>
+          <button className="logout-btn" onClick={logout}>
+            Logout
+          </button>
         </div>
       </div>
       <div className="card margin">
